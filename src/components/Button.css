@@ -1,0 +1,12 @@
+
+.logar button {
+    padding: 5px 20px;
+    border: none;
+    background-color: var(--cor2);
+    color: #fff;
+    transition: 2s;
+}
+.logar button:hover {
+    color: var(--cor1);
+    background-color: var(--cor3);
+}
