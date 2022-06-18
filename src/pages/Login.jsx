@@ -17,11 +17,17 @@ export function Login() {
 
         const verificadEmail = /\w@gmail.com/
 
-        if((email || password) == "") {
+        if((email && password) == "") {
             alert('Login invalido. Volte a logar ou cadastre')
         } else if(verificadEmail.test(email) !== true) {
             alert('Login invalido. Digite um email')
         }
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        console.log("Enviou")
     }
 
     return (
@@ -40,39 +46,46 @@ export function Login() {
                     </h1>
                     <h4>Faça o seu login</h4>
 
-                    <input
-                        type="email" 
-                        id="email" 
-                        placeholder="Digite seu email" 
-                        value={email.value}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-            
-                    <input 
-                        type="password" 
-                        id="password" 
-                        placeholder="Digite sua senha" 
-                        value={password.value}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                    
-                    <div className="logar">
-                        <Link to="/Enter">
-                            <button 
-                                type="button" 
-                                class="btn btn-success"
-                                onClick={verificaConta}
-                            >
-                                Entrar
-                            </button>
-                        </Link>
+                    <form className='container-login' onSubmit={handleSubmit}>
+                        <input
+                            type="email" 
+                            id="email" 
+                            placeholder="Digite seu email" 
+                            value={email.value}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                
+                        <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="Digite sua senha" 
+                            value={password.value}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
                         
-                        <Link to="/Register">
-                            <Button nome="Cadastrar"></Button>
-                        </Link>
-                    </div>
+                        <div className="logar">
+                            <Link to="/Enter">
+                                <Button
+                                    type="submit" 
+                                    class="btn btn-success"
+                                    onClick={verificaConta}
+                                    nome="Entrar"
+                                >
+                                    <input type="submit" />
+                                </Button>
+                            </Link>
+                            
+                            <Link to="/Register">
+                                <Button
+                                    type="submit" 
+                                    class="btn btn-success"
+                                    nome="Cadastrar"
+                                ></Button>
+                            </Link>
+                        </div>
+                    </form>
 
                 </div>
             </div>

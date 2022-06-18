@@ -73,6 +73,7 @@
     font-size: 40px;
     font-weight: 700;
     color: var(--cor2);
+    margin-left: 20px;
 }
 
 .container-register input {

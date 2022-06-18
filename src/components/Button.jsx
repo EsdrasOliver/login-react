@@ -1,7 +1,14 @@
+
 import './Button.css'
 
-export function Button({ nome }) {
+export function Button(props) {
     return (
-        <button type="button" class="btn btn-success">{nome}</button>
+        <button 
+            type={props.type} 
+            className={props.class}
+            onClick={props.onClick}
+        >
+            {props.nome}
+        </button>
     )
 }

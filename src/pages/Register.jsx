@@ -12,7 +12,7 @@ export function Register() {
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
 
-    function verificaRegistro() {
+    async function verificaRegistro() {
         let email = document.getElementById('email').value
         let password = document.getElementById('password').value
         let confirm = document.getElementById('confirm').value
@@ -31,6 +31,11 @@ export function Register() {
         }
     }
 
+    async function handleSubmit(e) {
+        e.preventDefault()
+        console.log(e)
+    }
+
     return (
         <div className="background">
             <div className="container">
@@ -41,50 +46,58 @@ export function Register() {
                         Faça o seu cadastro
                     </h1>
 
-                    <input 
-                        type="email" 
-                        id="email" 
-                        placeholder="Digite seu email" 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-            
-                    
-                    <input 
-                        type="password" 
-                        id="password" 
-                        placeholder="Digite sua senha" 
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-
-                    
-                    <input 
-                        type="password" 
-                        id="confirm" 
-                        placeholder="Digite novamente sua senha" 
-                        value={confirm}
-                        onChange={(e) => setConfirm(e.target.value)}
-                        required
-                    />
-                    
-                    <div className="logar">
-                        <Link to="/Enter">
-                            <button 
-                                type="button" 
-                                class="btn btn-success"
-                                onClick={verificaRegistro}
-                            >
-                                Cadastrar
-                            </button>
-                        </Link>
+                    <form className='container-login' onSubmit={handleSubmit}>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="Digite seu email" 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                
                         
-                        <Link to="/">
-                            <Button nome="Login"></Button>
-                        </Link>
-                    </div>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="Digite sua senha" 
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+
+                        
+                        <input 
+                            type="password" 
+                            id="confirm" 
+                            placeholder="Digite novamente sua senha" 
+                            value={confirm}
+                            onChange={(e) => setConfirm(e.target.value)}
+                            required
+                        />
+                        
+                        <div className="logar">
+                            <Link to="/Enter">
+                                <Button
+                                    type="button" 
+                                    class="btn btn-success"
+                                    onClick={verificaRegistro}
+                                    nome="Registrar"
+                                >
+
+                                </Button>
+                            </Link>
+                            
+                            <Link to="/">
+                                <Button 
+                                    type="button" 
+                                    class="btn btn-success"
+                                    nome="Voltar"
+                                ></Button>
+                            </Link>
+                        </div>
+
+                    </form>
 
                 </div>
 
