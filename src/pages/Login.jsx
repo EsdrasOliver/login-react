@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 
 import './Login.css'
 import imagemLogin from '../assets/imagemLogin.jpg'
+import close from '../assets/close.png'
+import open from '../assets/open.jpg'
 
 import { Button } from '../components/Button'
 import { useState } from 'react'
@@ -30,6 +32,29 @@ export function Login() {
         console.log("Enviou")
     }
 
+    function eyeClick() {
+        const  passwordInput =document.getElementById("password")
+        const eyeIcon = document.getElementById("eyeIcon")
+
+        let inputTypeIsPassword = passwordInput.type == "password"
+
+        if(inputTypeIsPassword) {
+            showPassword()
+        } else {
+            hidePassword()
+        }
+
+        function showPassword() {
+            passwordInput.setAttribute("type", "text")
+            eyeIcon.setAttribute("src", `${close}`)
+        }
+
+        function hidePassword() {
+            passwordInput.setAttribute("type", "password")
+            eyeIcon.setAttribute("src", `${open}`)
+        }
+    }
+
     return (
         <div className="background">
             <div className="container">
@@ -56,14 +81,18 @@ export function Login() {
                             required
                         />
                 
-                        <input 
-                            type="password" 
-                            id="password" 
-                            placeholder="Digite sua senha" 
-                            value={password.value}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
+                        <div className="inputPassword">
+                            <input
+                                type="password" 
+                                id="password" 
+                                placeholder="Digite sua senha" 
+                                value={password.value}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            >
+                            </input> 
+                            <img src={`${close}`} onClick={eyeClick} id="eyeIcon" width="20px" />
+                        </div>
                         
                         <div className="logar">
                             <Link to="/Enter">

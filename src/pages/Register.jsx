@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 
 import './Register.css'
 import imagemCadastro from '../assets/imagemCadastro.jpg'
+import close from '../assets/close.png'
+import open from '../assets/open.jpg'
 
 import { Button } from '../components/Button'
 import { useState } from 'react'
@@ -11,6 +13,50 @@ export function Register() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
+
+    function eyeClick() {
+        const  passwordInput =document.getElementById("password")
+        const eyeIcon = document.getElementById("eyeIcon")
+
+        let inputTypeIsPassword = passwordInput.type == "password"
+        
+        if(inputTypeIsPassword) {
+            showPassword()
+        } else {
+            hidePassword()
+        }
+
+        function showPassword() {
+            passwordInput.setAttribute("type", "text")
+            eyeIcon.setAttribute("src", `${close}`)
+        }
+        function hidePassword() {
+            passwordInput.setAttribute("type", "password")
+            eyeIcon.setAttribute("src", `${open}`)
+        }
+    }
+
+    function eyeConfirmClick() {
+        const confirmInput = document.getElementById("confirm")
+        const eyeConfirmIcon = document.getElementById("eyeConfirmIcon")
+
+        let inputTypeIsConfirm = confirmInput.type == "password"
+
+        if(inputTypeIsConfirm) {
+            showConfirm()
+        } else {
+            hideConfirm()
+        }
+
+        function showConfirm() {
+            confirmInput.setAttribute("type", "text")
+            eyeConfirmIcon.setAttribute("src", `${close}`)
+        }
+        function hideConfirm() {
+            confirmInput.setAttribute("type", "password")
+            eyeConfirmIcon.setAttribute("src", `${open}`)
+        }
+    }
 
     async function verificaRegistro() {
         let email = document.getElementById('email').value
@@ -56,7 +102,7 @@ export function Register() {
                             required
                         />
                 
-                        
+                        <div className="inputPassword">
                         <input 
                             type="password" 
                             id="password" 
@@ -65,8 +111,10 @@ export function Register() {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
-
+                        <img src={`${close}`} onClick={eyeClick} id="eyeIcon" width="20px" />
+                        </div>
                         
+                        <div className="inputPassword">
                         <input 
                             type="password" 
                             id="confirm" 
@@ -75,6 +123,8 @@ export function Register() {
                             onChange={(e) => setConfirm(e.target.value)}
                             required
                         />
+                        <img src={`${close}`} onClick={eyeConfirmClick} id="eyeConfirmIcon" width="20px" />
+                        </div>
                         
                         <div className="logar">
                             <Link to="/Enter">

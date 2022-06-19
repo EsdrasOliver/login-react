@@ -77,10 +77,27 @@
 }
 
 .container-register input {
-    margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
     border: none;
+}
+
+.inputPassword {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.inputPassword > input {
+    width: 305px;
+}
+
+.inputPassword img {
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+    width: 30px;
 }
 
 .logar {
