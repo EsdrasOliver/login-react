@@ -92,16 +92,27 @@
     border: none;
 }
 
+.container-login > input:focus {
+    box-shadow: 4px;
+    outline-color: var(--cor3);
+}
+
 .inputPassword {
     display: flex;
     align-items: center;
+    flex-direction: initial;
     border-radius: 5px;
-    background-color: #fff;
     margin-top: 10px;
+    width: 335px;
 }
 
 .inputPassword > input {
     width: 305px;
+}
+
+.inputPassword > input:focus {
+    box-shadow: 4px;
+    outline-color: var(--cor3);
 }
 
 .inputPassword img {

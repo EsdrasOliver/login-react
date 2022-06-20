@@ -91,7 +91,9 @@ export function Login() {
                                 required
                             >
                             </input> 
-                            <img src={`${close}`} onClick={eyeClick} id="eyeIcon" width="20px" />
+                            {password && (
+                                <img src={`${close}`} onClick={eyeClick} id="eyeIcon" width="20px" />
+                            )}
                         </div>
                         
                         <div className="logar">

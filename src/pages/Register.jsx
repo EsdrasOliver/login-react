@@ -103,27 +103,32 @@ export function Register() {
                         />
                 
                         <div className="inputPassword">
-                        <input 
-                            type="password" 
-                            id="password" 
-                            placeholder="Digite sua senha" 
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                        <img src={`${close}`} onClick={eyeClick} id="eyeIcon" width="20px" />
+                            <input 
+                                type="password" 
+                                id="password" 
+                                placeholder="Digite sua senha" 
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                            {password && (
+                                <img src={`${close}`} onClick={eyeClick} id="eyeIcon" width="20px" />
+                            )}
+                        
                         </div>
                         
                         <div className="inputPassword">
-                        <input 
-                            type="password" 
-                            id="confirm" 
-                            placeholder="Digite novamente sua senha" 
-                            value={confirm}
-                            onChange={(e) => setConfirm(e.target.value)}
-                            required
-                        />
-                        <img src={`${close}`} onClick={eyeConfirmClick} id="eyeConfirmIcon" width="20px" />
+                            <input 
+                                type="password" 
+                                id="confirm" 
+                                placeholder="Digite novamente sua senha" 
+                                value={confirm}
+                                onChange={(e) => setConfirm(e.target.value)}
+                                required
+                            />
+                            {confirm && (
+                                <img src={`${close}`} onClick={eyeConfirmClick} id="eyeConfirmIcon" width="20px" />
+                            )}
                         </div>
                         
                         <div className="logar">
