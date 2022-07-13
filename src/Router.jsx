@@ -4,7 +4,7 @@ import { Enter } from './pages/Enter'
 import { Login } from "./pages/Login"
 import { Register } from './pages/Register'
 
-export function AppRoutes() {
+export function Routers() {
     return (
         <Router>
             <Routes>

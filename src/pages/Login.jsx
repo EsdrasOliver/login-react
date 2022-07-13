@@ -26,6 +26,19 @@ export function Login() {
         }
     }
 
+    const addUser = () => {
+        const user = {
+            email,
+            password
+        }
+
+        localStorage.setItem('user', JSON.stringify(user))
+
+        const getUser = localStorage.getItem('user')
+
+        const userObject = JSON.parse(getUser)
+    }
+
     function handleSubmit(e) {
         e.preventDefault()
 
@@ -101,7 +114,7 @@ export function Login() {
                                 <Button
                                     type="submit" 
                                     class="btn btn-success"
-                                    onClick={verificaConta}
+                                    onClick={verificaConta && addUser}
                                     nome="Entrar"
                                 >
                                     <input type="submit" />

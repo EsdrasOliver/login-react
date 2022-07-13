@@ -58,10 +58,11 @@ export function Register() {
         }
     }
 
-    async function verificaRegistro() {
+    function verificaRegistro() {
         let email = document.getElementById('email').value
         let password = document.getElementById('password').value
         let confirm = document.getElementById('confirm').value
+        let validated = false
 
         if(confirm !== password) {
             alert('Senhas diferentes')
@@ -75,11 +76,30 @@ export function Register() {
         if(verificadEmail.test(email) !== true) {
             alert('Login invalido. Digite um email')
         }
+        validated = true
+        if(validated === true) {
+            addUser()
+        }
     }
 
-    async function handleSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault()
-        console.log(e)
+    }
+
+    const addUser = () => {
+        const user = {
+            email,
+            password
+        }
+
+        localStorage.setItem('user', JSON.stringify(user))
+
+        const getUser = localStorage.getItem('user')
+
+        const userObject = JSON.parse(getUser)
+
+        console.log(userObject.email);
+        console.log(userObject.password);
     }
 
     return (

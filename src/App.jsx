@@ -1,8 +1,7 @@
-import { AppRoutes } from "./AppRoutes";
-
+import { Routers } from "./Router"
 
 export function App() {
   return (
-    <AppRoutes></AppRoutes>
+    <Routers></Routers>
   )
 }
