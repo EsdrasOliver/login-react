@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import './Login.css'
-import imagemLogin from '../assets/imagemLogin.jpg'
+import imagemLogin from '../assets/imagemLogin.png'
 import close from '../assets/close.png'
 import open from '../assets/open.jpg'
 

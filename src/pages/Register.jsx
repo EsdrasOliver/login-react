@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import './Register.css'
-import imagemCadastro from '../assets/imagemCadastro.jpg'
+import imagemCadastro from '../assets/imagemCadastro.png'
 import close from '../assets/close.png'
 import open from '../assets/open.jpg'
 
